@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssCS", "AssCS\AssCS.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ameko", "Ameko\Ameko.csproj", "{C8211913-4F55-4EB0-A8BF-620F806255EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadSubs", "LoadSubs\LoadSubs.csproj", "{061B9A29-845F-407D-A3A4-AA4A9C0DE697}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C8211913-4F55-4EB0-A8BF-620F806255EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8211913-4F55-4EB0-A8BF-620F806255EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8211913-4F55-4EB0-A8BF-620F806255EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{061B9A29-845F-407D-A3A4-AA4A9C0DE697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061B9A29-845F-407D-A3A4-AA4A9C0DE697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061B9A29-845F-407D-A3A4-AA4A9C0DE697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061B9A29-845F-407D-A3A4-AA4A9C0DE697}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

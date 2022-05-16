@@ -5,7 +5,7 @@ public static class AssParser
     public static AssFile LoadAndParse(string filePath)
     {
         // Setup
-        var result = new AssFile(new AssInfo(), new List<AssStyle>(), new List<AssEvent>(), new AssMeta());
+        var result = new AssFile(new AssInfo(), new List<AssStyle>(), new List<AssEvent>(), new AssMeta(), new List<AssExtra>());
 
         // Open the file and begin parsing
         ParseFunc parseState = ParseUnknownLine;
@@ -26,7 +26,9 @@ public static class AssParser
                     "[v4+ styles]" => ParseStyleLine,
                     "[events]" => ParseEventLine,
                     "[script info]" => ParseScriptInfoLine,
-                    "[aegisub project garbage]" => ParseMetadataLine
+                    "[aegisub project garbage]" => ParseMetadataLine,
+                    "[aegisub extradata]" => ParseExtradataLine,
+                    _ => ParseUnknownLine
                 };
             }
 
@@ -69,15 +71,22 @@ public static class AssParser
     }
     private static void ParseMetadataLine(string line, AssFile file)
     {
-        var pair = line.Split(": ");
+        var pair = line.Split(":");
         if (pair.Length >= 2)
             file.ScriptMetadata.Add
             (
                 pair[0].Trim(),
-                pair[1].Trim()
+                String.Join(":",pair,1,pair.Length-1).Trim()
             );
         // Not a key:value pair
         else return;
+    }
+    
+    private static void ParseExtradataLine(string line, AssFile file)
+    {
+        if (line.StartsWith("Data:"))
+            file.ScriptExtradata.Add(AssExtra.Make(line));
+
     }
 
     private static void ParseUnknownLine(string line, AssFile file)
